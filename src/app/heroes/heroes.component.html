@@ -1,4 +1,5 @@
 <h2>My Heroes</h2>
+
 <ul class="heroes">
   <!-- *ngFor is Angular's repeater directive. It repeats the host element for each element in a list -->
   <!-- Add class for styling and a click event binding to the <li> -->
@@ -9,14 +10,5 @@
   </li>
 </ul>
 
-<!-- The template still refers to the component's old hero property which no longer exists. Rename hero to selectedHero -->
-<div *ngIf="selectedHero">
-  <h2>{{selectedHero.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{selectedHero.id}}</div>
-  <div>
-    <label>name:
-      <input [(ngModel)]="selectedHero.name" placeholder="name">
-    </label>
-  </div>
-</div>
-
+<!-- Bind the HeroesComponent.selectedHero to the element's hero property -->
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>

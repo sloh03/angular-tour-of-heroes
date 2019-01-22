@@ -1,16 +1,16 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms'; // Import the FormsModule symbol from the @angular/forms library
 
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
-
-// Import the FormsModule symbol from the @angular/forms library
-import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
+import { HeroDetailComponent } from './hero-detail/hero-detail.component'; // <-- NgModel lives here
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroesComponent
+    HeroesComponent,
+    HeroDetailComponent
   ],
   // Add FormsModule to the @NgModule metadata's imports array, which contains a list of external modules that the app needs
   imports: [
