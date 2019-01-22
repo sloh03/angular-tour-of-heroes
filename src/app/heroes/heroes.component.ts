@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero'; // Import Hero class
-import { HEROES } from '../mock-heroes'; // Import the mock HEROES - Displays the list of heroes at the top of the HeroesComponent
+import { HeroService } from '../hero.service'; 
 
 @Component({
   selector: 'app-heroes',
@@ -10,15 +10,15 @@ import { HEROES } from '../mock-heroes'; // Import the mock HEROES - Displays th
 
 export class HeroesComponent implements OnInit {
 
-  // In the same file (HeroesComponent class), define a component property called heroes to expose HEROES array for binding
-  heroes = HEROES;
-
   // Rename the component's hero property to selectedHero but don't assign it. There is no selected hero when the application starts
   selectedHero: Hero;
 
-  constructor() { }
+  heroes: Hero[];
+
+  constructor(private heroService: HeroService) { }
 
   ngOnInit() {
+    this.getHeroes();
   }
 
   // Add the following onSelect() method, which assigns the clicked hero from the template to the component's selectedHero
@@ -26,5 +26,9 @@ export class HeroesComponent implements OnInit {
     this.selectedHero = hero;
   }
 
-}
+  getHeroes(): void {
+    this.heroService.getHeroes()
+      .subscribe(heroes => this.heroes = heroes);
+  }  
 
+}
