@@ -10,20 +10,12 @@ import { HeroService } from '../hero.service';
 
 export class HeroesComponent implements OnInit {
 
-  // Rename the component's hero property to selectedHero but don't assign it. There is no selected hero when the application starts
-  selectedHero: Hero;
-
   heroes: Hero[];
 
   constructor(private heroService: HeroService) { }
 
   ngOnInit() {
     this.getHeroes();
-  }
-
-  // Add the following onSelect() method, which assigns the clicked hero from the template to the component's selectedHero
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
   }
 
   getHeroes(): void {

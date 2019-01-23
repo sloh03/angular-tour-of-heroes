@@ -1,14 +1,10 @@
 <h2>My Heroes</h2>
 
 <ul class="heroes">
-  <!-- *ngFor is Angular's repeater directive. It repeats the host element for each element in a list -->
-  <!-- Add class for styling and a click event binding to the <li> -->
-  <li *ngFor="let hero of heroes" 
-    [class.selected]="hero === selectedHero"
-    (click)="onSelect(hero)">
-    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
+      <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </a>
   </li>
 </ul>
 
-<!-- Bind the HeroesComponent.selectedHero to the element's hero property -->
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>

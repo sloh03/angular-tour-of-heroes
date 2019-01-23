@@ -1,11 +1,17 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div>
-  <h1>
-    {{ title }}
-  </h1>
 
-  <!-- Show the HeroesComponent and MessagesComponent view -->
-  <app-heroes></app-heroes>
-  <app-messages></app-messages>
+<h1>
+  {{ title }}
+</h1>
+
+<!-- Click 'Heroes' link triggers navigation to the HeroesComponent -->
+<nav>
+  <a routerLink="/dashboard">Dashboard</a>
+  <a routerLink="/heroes">Heroes</a>
+</nav>
+
+<!-- Show the OutletComponent and MessagesComponent view -->
+<router-outlet></router-outlet>
+<app-messages></app-messages>
 
 
